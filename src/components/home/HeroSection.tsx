@@ -1,15 +1,48 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Play, MapPin, ArrowRight } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
 
 export function HeroSection() {
+  const { data: heroVideoUrl } = useQuery({
+    queryKey: ['hero-video'],
+    queryFn: async () => {
+      const { data } = await supabase
+        .from('site_settings')
+        .select('value')
+        .eq('key', 'hero_video_url')
+        .maybeSingle();
+      return data?.value || '';
+    },
+  });
+
   return (
     <section className="relative min-h-[90vh] flex items-center hero-gradient overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-secondary rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
-      </div>
+      {/* Video Background */}
+      {heroVideoUrl && (
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={heroVideoUrl} type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-primary/70" />
+        </div>
+      )}
+
+      {/* Fallback Background Pattern (when no video) */}
+      {!heroVideoUrl && (
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-secondary rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        </div>
+      )}
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl">

@@ -14,6 +14,13 @@ import Give from "./pages/Give";
 import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminSettings from "./pages/admin/Settings";
+import AdminEvents from "./pages/admin/Events";
+import AdminSermons from "./pages/admin/Sermons";
+import AdminBlogPosts from "./pages/admin/BlogPosts";
+import AdminContacts from "./pages/admin/Contacts";
+import AdminPrayerRequests from "./pages/admin/PrayerRequests";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +41,14 @@ const App = () => (
             <Route path="/give" element={<Give />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/auth" element={<Auth />} />
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/settings" element={<AdminSettings />} />
+            <Route path="/admin/events" element={<AdminEvents />} />
+            <Route path="/admin/sermons" element={<AdminSermons />} />
+            <Route path="/admin/blog" element={<AdminBlogPosts />} />
+            <Route path="/admin/contacts" element={<AdminContacts />} />
+            <Route path="/admin/prayers" element={<AdminPrayerRequests />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

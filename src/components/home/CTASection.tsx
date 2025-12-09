@@ -60,7 +60,7 @@ export function CTASection() {
               Submit a prayer request and let our community lift you up in prayer.
             </p>
             <Button asChild className="gold-gradient text-secondary-foreground hover:opacity-90 w-full">
-              <Link to="/contact">Request Prayer</Link>
+              <Link to="/prayer-request">Request Prayer</Link>
             </Button>
           </div>
         </div>

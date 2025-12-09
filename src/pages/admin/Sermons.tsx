@@ -11,6 +11,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Plus, Pencil, Trash2, BookOpen } from 'lucide-react';
 import { format } from 'date-fns';
+import { FileUpload } from '@/components/admin/FileUpload';
 
 interface Sermon {
   id: string;
@@ -157,16 +158,22 @@ export default function AdminSermons() {
                   <Label htmlFor="description">Description</Label>
                   <Textarea id="description" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} rows={3} />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="video_url">Video URL (YouTube/Vimeo)</Label>
-                    <Input id="video_url" value={formData.video_url} onChange={(e) => setFormData({ ...formData, video_url: e.target.value })} placeholder="https://youtube.com/..." />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="audio_url">Audio URL</Label>
-                    <Input id="audio_url" value={formData.audio_url} onChange={(e) => setFormData({ ...formData, audio_url: e.target.value })} placeholder="https://..." />
-                  </div>
-                </div>
+                <FileUpload
+                  bucket="sermons"
+                  accept="video/*"
+                  type="video"
+                  label="Sermon Video"
+                  currentUrl={formData.video_url}
+                  onUploadComplete={(url) => setFormData({ ...formData, video_url: url })}
+                />
+                <FileUpload
+                  bucket="sermons"
+                  accept="audio/*"
+                  type="audio"
+                  label="Sermon Audio"
+                  currentUrl={formData.audio_url}
+                  onUploadComplete={(url) => setFormData({ ...formData, audio_url: url })}
+                />
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="series">Series (Optional)</Label>

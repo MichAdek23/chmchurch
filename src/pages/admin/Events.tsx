@@ -11,6 +11,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { Plus, Pencil, Trash2, Calendar } from 'lucide-react';
 import { format } from 'date-fns';
+import { FileUpload } from '@/components/admin/FileUpload';
 
 interface Event {
   id: string;
@@ -173,10 +174,14 @@ export default function AdminEvents() {
                   <Label htmlFor="location">Location</Label>
                   <Input id="location" value={formData.location} onChange={(e) => setFormData({ ...formData, location: e.target.value })} />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="image_url">Image URL</Label>
-                  <Input id="image_url" value={formData.image_url} onChange={(e) => setFormData({ ...formData, image_url: e.target.value })} placeholder="https://..." />
-                </div>
+                <FileUpload
+                  bucket="events"
+                  accept="image/*"
+                  type="image"
+                  label="Event Image"
+                  currentUrl={formData.image_url}
+                  onUploadComplete={(url) => setFormData({ ...formData, image_url: url })}
+                />
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id="is_featured" checked={formData.is_featured} onChange={(e) => setFormData({ ...formData, is_featured: e.target.checked })} />
                   <Label htmlFor="is_featured">Featured Event</Label>

@@ -3,24 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+    <title>Christian Heroes Mission Inc. - Spreading the Gospel, Making Disciples</title>
+    <meta name="description" content="Christian Heroes Mission Inc. is dedicated to spreading the Gospel of Jesus Christ, making disciples, and serving communities with love and compassion." />
+    <meta name="author" content="Christian Heroes Mission Inc." />
+    <meta name="keywords" content="Christian mission, church, Jesus Christ, discipleship, worship, Bible study, prayer, Christian ministry, faith, salvation" />
+    <link rel="canonical" href="https://christianheroesmission.org" />
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://christianheroesmission.org/" />
+    <meta property="og:title" content="Christian Heroes Mission Inc. - Spreading the Gospel, Making Disciples" />
+    <meta property="og:description" content="Join us in our mission to spread the Gospel and make disciples of all nations. Worship with us and grow in your faith journey." />
+    <meta property="og:image" content="https://christianheroesmission.org/images/og-image.jpg" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://christianheroesmission.org/" />
+    <meta property="twitter:title" content="Christian Heroes Mission Inc. - Spreading the Gospel, Making Disciples" />
+    <meta property="twitter:description" content="Join us in our mission to spread the Gospel and make disciples of all nations. Worship with us and grow in your faith journey." />
+    <meta property="twitter:image" content="https://christianheroesmission.org/images/og-image.jpg" />
+    
+    <!-- Structured Data for Church/Religious Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PlaceOfWorship",
+      "@type": "ChristianChurch",
+      "name": "Christian Heroes Mission Inc.",
+      "url": "https://christianheroesmission.org",
+      "logo": "https://christianheroesmission.org/images/logo.png",
+      "image": "https://christianheroesmission.org/images/church-building.jpg",
+      "description": "A Bible-believing church dedicated to spreading the Gospel of Jesus Christ and making disciples of all nations.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Faith Avenue",
+        "addressLocality": "Your City",
+        "addressRegion": "Your State",
+        "postalCode": "12345",
+        "addressCountry": "Your Country"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.7128",
+        "longitude": "-74.0060"
+      },
+      "telephone": "+1-555-123-4567",
+      "email": "info@christianheroesmission.org",
+      "sameAs": [
+        "https://www.facebook.com/christianheroesmission",
+        "https://www.youtube.com/channel/UCXXXXXX",
+        "https://www.instagram.com/christianheroesmission"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "09:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Wednesday"],
+          "opens": "18:30",
+          "closes": "20:00"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Weekly Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Sunday Services",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "Sunday School",
+                "description": "Bible study for all ages",
+                "startTime": "09:00",
+                "endTime": "10:00"
+              },
+              {
+                "@type": "Service",
+                "name": "Morning Worship",
+                "description": "Praise and worship service with biblical teaching",
+                "startTime": "10:30",
+                "endTime": "12:00"
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Midweek Services",
+            "itemListElement": [
+              {
+                "@type": "Service",
+                "name": "Bible Study & Prayer Meeting",
+                "description": "Midweek Bible study and prayer gathering",
+                "dayOfWeek": "Wednesday",
+                "startTime": "18:30",
+                "endTime": "20:00"
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Your React app will be rendered here -->
+    </div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
   </body>
 </html>

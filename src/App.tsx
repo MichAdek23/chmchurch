@@ -10,8 +10,10 @@ import Services from "./pages/Services";
 import Events from "./pages/Events";
 import Sermons from "./pages/Sermons";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Give from "./pages/Give";
 import Contact from "./pages/Contact";
+import PrayerRequest from "./pages/PrayerRequest";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -38,8 +40,10 @@ const App = () => (
             <Route path="/events" element={<Events />} />
             <Route path="/sermons" element={<Sermons />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/give" element={<Give />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/prayer-request" element={<PrayerRequest />} />
             <Route path="/auth" element={<Auth />} />
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminDashboard />} />
